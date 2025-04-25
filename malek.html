@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Professional Certifications</title>
+  <style>
+    :root {
+      --primary-color: #2e3a59;
+      --accent-color: #4d9aff;
+      --background-color: #f0f4f8;
+      --card-bg: #ffffff;
+      --shadow-color: rgba(0, 0, 0, 0.1);
+      --border-radius: 10px;
+      --transition-duration: 0.3s;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--background-color);
+      color: var(--primary-color);
+      line-height: 1.6;
+      animation: fadeInBody 1s ease-in-out;
+    }
+
+    @keyframes fadeInBody {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    header {
+      background: linear-gradient(135deg, #1d4ed8, #2563eb);
+      color: #fff;
+      padding: 70px 20px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      border-bottom: 4px solid #fff;
+    }
+
+    header h1 {
+      font-size: 3.5rem;
+      margin-bottom: 20px;
+      animation: slideInTop 0.8s ease-out;
+    }
+
+    @keyframes slideInTop {
+      0% { transform: translateY(-20px); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+
+    .certifications {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      padding: 50px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .cert {
+      background: var(--card-bg);
+      border-radius: var(--border-radius);
+      box-shadow: 0 8px 20px var(--shadow-color);
+      text-align: center;
+      padding: 40px 25px;
+      transition: transform var(--transition-duration), box-shadow var(--transition-duration);
+      animation: fadeUp 0.6s ease forwards;
+      opacity: 0;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid #e0e0e0;
+    }
+
+    .cert:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 16px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    .cert::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -75%;
+      width: 50%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.15);
+      transform: skewX(-20deg);
+      transition: left 0.5s ease;
+    }
+
+    .cert:hover::before {
+      left: 125%;
+    }
+
+    .cert img {
+      width: 100px;
+      height: 100px;
+      margin-bottom: 15px;
+      border-radius: 10px;
+      transition: transform 0.3s ease;
+    }
+
+    .cert img:hover {
+      transform: scale(1.1);
+    }
+
+    .cert p {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin: 0;
+      color: var(--primary-color);
+      transition: color 0.3s ease;
+    }
+
+    .cert a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .cert:hover p {
+      color: var(--accent-color);
+    }
+
+    @keyframes fadeUp {
+      0% {
+        transform: translateY(20px);
+        opacity: 0;
+      }
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Malek Bachir Professional Certifications</h1>
+  </header>
+  <main class="certifications">
+    <div class="cert">
+<a href="https://www.credly.com/badges/6b5e6ed3-cd4a-45fb-b8cc-fec5835eb079/public_url" target="_blank">
+      <img src="C:\Users\MalekBachir\Downloads\Photoshop\AWS\AWS SAP.png" alt="AWS Cloud Architect Badge">
+      <p>AWS Certified Solutions Architect Professional</p>
+</a>
+    </div>
+    <div class="cert">
+<a href="https://www.credly.com/badges/d5b92743-193f-410b-a7a5-2f5766cc63b3/public_url" target="_blank">
+      <img src="C:\Users\MalekBachir\Downloads\Photoshop\AWS\AWS DevopS Pro.png" alt="AWS DevOps Badge">
+      <p>AWS Certified DevOps Engineer Professional</p>
+</a>
+    </div>
+    <div class="cert">
+<a href="https://www.credly.com/badges/d93d91b6-1da5-467e-af4e-48e95e897f3d/public_url" target="_blank">
+      <img src="C:\Users\MalekBachir\Downloads\Photoshop\AWS\AWS Networking Spec.png" alt="AWS Network Specialty Badge">
+      <p>AWS Certified Advanced Networking - Specialty</p>
+</a>
+    </div>
+    <div class="cert">
+<a href="https://www.credly.com/badges/f2b7b61e-c4c0-431f-ac3c-f70303c388c8/public_url" target="_blank">
+      <img src="C:\Users\MalekBachir\Downloads\Photoshop\AWS\AWS Sec Spe.png" alt="AWS Security Specialty Badge">
+      <p>AWS Certified Security - Specialty</p>
+</a>
+    </div>
+    <div class="cert">
+<a href="https://www.credly.com/badges/bf6ee7bc-f69b-4b7a-a6ee-03e0c166a3e1/public_url" target="_blank">
+      <img src="C:\Users\MalekBachir\Downloads\Photoshop\AWS\AI.png" alt="AWS AI Badge">
+      <p>AWS Certified AI Practitioner Early Adopter</p>
+</a>
+    </div>
+    <div class="cert">
+<a href="https://learn.microsoft.com/api/credentials/share/en-us/malekbachir-5608/EC3F3CBFACF633A6?sharingId=B805070C3413F405" target="_blank">
+      <img src="C:\Users\MalekBachir\Downloads\Photoshop\Azure\Azure-ASAE.png" alt="Azure Architect Badge">
+      <p>Microsoft Certified Azure Solution Architect Expert</p>
+</a>
+    </div>
+    <div class="cert">
+<a href="https://learn.microsoft.com/api/credentials/share/en-us/malekbachir-5608/2BAC708B32A6DB40?sharingId=B805070C3413F405" target="_blank">
+      <img src="C:\Users\MalekBachir\Downloads\Photoshop\Azure\Azure-devops.png" alt="Azure DevOps Badge">
+      <p>Microsoft Certified DevOps Engineer Expert</p>
+</a>
+    </div>
+    <div class="cert">
+<a href="https://learn.microsoft.com/api/credentials/share/en-us/malekbachir-5608/15ADE27135054669?sharingId=B805070C3413F405" target="_blank">
+      <img src="C:\Users\MalekBachir\Downloads\Photoshop\Azure\Azure-Cyber.png" alt="Azure Cyber Badge">
+      <p>Microsoft Certified Cybersecurity Architect Expert</p>
+</a>
+    </div>
+    <div class="cert">
+<a href="https://learn.microsoft.com/api/credentials/share/en-us/malekbachir-5608/7F18A53DB6E92F69?sharingId=B805070C3413F405" target="_blank">
+      <img src="C:\Users\MalekBachir\Downloads\Photoshop\Azure\azure-dev.png" alt="Azure Dev Badge">
+      <p>Microsoft Certified Azure Developer Associate</p>
+</a>
+    </div>
+    <div class="cert">
+<a href="https://learn.microsoft.com/api/credentials/share/en-us/malekbachir-5608/5C2FC54AD8EB548D?sharingId=B805070C3413F405" target="_blank">
+      <img src="C:\Users\MalekBachir\Downloads\Photoshop\Azure\azure-m365.png" alt="Microsoft 365 Badge">
+      <p>Microsoft 365 Certified Administrator Expert</p>
+</a>
+    </div>
+    <div class="cert">
+    <a href="https://learn.microsoft.com/api/credentials/share/en-us/malekbachir-5608/11A705719C1A7CB8?sharingId=B805070C3413F405" target="_blank">
+      <img src="C:\Users\MalekBachir\Downloads\Photoshop\Azure\azure-AI.png" alt="Azure AI Badge">
+      <p>Microsoft Certified Azure AI Engineer Associate</p>
+    </a>
+    </div>
+    <div class="cert">
+<a href="https://learn.microsoft.com/api/credentials/share/en-us/malekbachir-5608/B10229C628AE1CEE?sharingId=B805070C3413F405" target="_blank">
+      <img src="C:\Users\MalekBachir\Downloads\Photoshop\Azure\azure-admin.png" alt="Azure Admin Badge">
+      <p>Microsoft Certified Azure Administrator Associate</p>
+</a>
+    </div>
+    <div class="cert">
+<a href="https://learn.microsoft.com/api/credentials/share/en-us/malekbachir-5608/2C43371EE4EB0D86?sharingId=B805070C3413F405" target="_blank">
+      <img src="C:\Users\MalekBachir\Downloads\Photoshop\Azure\azure-IAM.png" alt="Azure IAM Badge">
+      <p>Microsoft Certified Identity and Access Administrator Associate</p>
+</a>
+    </div>
+    <div class="cert">
+<a href="https://learn.microsoft.com/api/credentials/share/en-us/malekbachir-5608/736D444BD7A94E74?sharingId=B805070C3413F405" target="_blank">
+      <img src="C:\Users\MalekBachir\Downloads\Photoshop\Azure\azure-Ops.png" alt="Azure Ops Badge">
+      <p>Microsoft Certified Security Operations Analyst Associate</p>
+</a>
+    </div>
+    <div class="cert">
+<a href="https://learn.microsoft.com/api/credentials/share/en-us/malekbachir-5608/3722CA637CFCCD8B?sharingId=B805070C3413F405" target="_blank">
+      <img src="C:\Users\MalekBachir\Downloads\Photoshop\Azure\azure-sec.png" alt="Azure Sec Badge">
+      <p>Microsoft Certified Security Engineer Associate</p>
+</a>
+    </div>
+    <div class="cert">
+<a href="https://www.credly.com/badges/ce7b6ecd-233c-439b-b2ef-8a73eeda5b4c/public_url" target="_blank">
+      <img src="C:\Users\MalekBachir\Downloads\Photoshop\Google\CloudArchitectPro.png" alt="GCP Architect Badge">
+      <p>Google Cloud Architect Certified Professional</p>
+</a>
+    </div>
+    <div class="cert">
+<a href="https://www.credly.com/badges/6cf22030-af2d-410c-a270-56ca8e9356a6/public_url" target="_blank">
+      <img src="C:\Users\MalekBachir\Downloads\Photoshop\Google\GWS-admin.png" alt="GWS Admin Badge">
+      <p>Google Workspace Administrator Associate</p>
+</a>
+    </div>
+  </main>
+</body>
+</html>
