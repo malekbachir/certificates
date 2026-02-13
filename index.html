@@ -1,257 +1,285 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Professional Certifications</title>
-  <style>
-    :root {
-      --primary-color: #2e3a59;
-      --accent-color: #4d9aff;
-      --background-color: #f0f4f8;
-      --card-bg: #ffffff;
-      --shadow-color: rgba(0, 0, 0, 0.1);
-      --border-radius: 10px;
-      --transition-duration: 0.3s;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: var(--background-color);
-      color: var(--primary-color);
-      line-height: 1.6;
-      animation: fadeInBody 1s ease-in-out;
-    }
-
-    @keyframes fadeInBody {
-      0% { opacity: 0; }
-      100% { opacity: 1; }
-    }
-
-    header {
-      background: linear-gradient(135deg, #1d4ed8, #2563eb);
-      color: #fff;
-      padding: 70px 20px;
-      text-align: center;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-      border-bottom: 4px solid #fff;
-    }
-
-    header h1 {
-      font-size: 3.5rem;
-      margin-bottom: 20px;
-      animation: slideInTop 0.8s ease-out;
-    }
-
-    @keyframes slideInTop {
-      0% { transform: translateY(-20px); opacity: 0; }
-      100% { transform: translateY(0); opacity: 1; }
-    }
-
-    .certifications {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 30px;
-      padding: 50px 20px;
-      max-width: 1200px;
-      margin: auto;
-    }
-
-    .cert {
-      background: var(--card-bg);
-      border-radius: var(--border-radius);
-      box-shadow: 0 8px 20px var(--shadow-color);
-      text-align: center;
-      padding: 40px 25px;
-      transition: transform var(--transition-duration), box-shadow var(--transition-duration);
-      animation: fadeUp 0.6s ease forwards;
-      opacity: 0;
-      position: relative;
-      overflow: hidden;
-      border: 1px solid #e0e0e0;
-    }
-
-    .cert:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 16px 30px rgba(0, 0, 0, 0.15);
-    }
-
-    .cert::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: -75%;
-      width: 50%;
-      height: 100%;
-      background: rgba(255, 255, 255, 0.15);
-      transform: skewX(-20deg);
-      transition: left 0.5s ease;
-    }
-
-    .cert:hover::before {
-      left: 125%;
-    }
-
-    .cert img {
-      width: 100px;
-      height: 100px;
-      margin-bottom: 15px;
-      border-radius: 10px;
-      transition: transform 0.3s ease;
-    }
-
-    .cert img:hover {
-      transform: scale(1.1);
-    }
-
-    .cert p {
-      font-size: 1.1rem;
-      font-weight: 600;
-      margin: 0;
-      color: var(--primary-color);
-      transition: color 0.3s ease;
-    }
-
-    .cert a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    .cert:hover p {
-      color: var(--accent-color);
-    }
-
-    @keyframes fadeUp {
-      0% {
-        transform: translateY(20px);
-        opacity: 0;
-      }
-      100% {
-        transform: translateY(0);
-        opacity: 1;
-      }
-    }
-
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 2.5rem;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Malek Bachir — Certifications</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0a0a0f;
+            --surface: #111118;
+            --surface-hover: #1a1a24;
+            --border: #1e1e2a;
+            --text: #e8e8ed;
+            --text-muted: #7a7a8c;
+            --accent-aws: #FF9900;
+            --accent-aws-glow: rgba(255, 153, 0, 0.15);
+            --accent-azure: #0078D4;
+            --accent-azure-glow: rgba(0, 120, 212, 0.15);
+            --accent-gcp: #4285F4;
+            --accent-gcp-glow: rgba(66, 133, 244, 0.15);
+            --radius: 12px;
+        }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; overflow-x: hidden; }
+        .ambient { position: fixed; top: 0; left: 0; right: 0; bottom: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+        .ambient::before { content: ''; position: absolute; top: -30%; left: -10%; width: 600px; height: 600px; background: radial-gradient(circle, rgba(255,153,0,0.06) 0%, transparent 70%); animation: float1 20s ease-in-out infinite; }
+        .ambient::after { content: ''; position: absolute; bottom: -20%; right: -10%; width: 500px; height: 500px; background: radial-gradient(circle, rgba(0,120,212,0.06) 0%, transparent 70%); animation: float2 25s ease-in-out infinite; }
+        @keyframes float1 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(80px,60px)} }
+        @keyframes float2 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(-60px,-80px)} }
+        .grain { position: fixed; top: 0; left: 0; right: 0; bottom: 0; pointer-events: none; z-index: 1; opacity: 0.03; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E"); background-repeat: repeat; background-size: 256px; }
+        .container { position: relative; z-index: 2; max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+        nav { padding: 24px 0; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); margin-bottom: 80px; }
+        nav a { color: var(--text-muted); text-decoration: none; font-size: 14px; font-weight: 500; letter-spacing: 0.02em; transition: color 0.3s; }
+        nav a:hover { color: var(--text); }
+        .nav-name { font-family: 'Instrument Serif', serif; font-size: 20px; color: var(--text) !important; font-weight: 400; }
+        .nav-links { display: flex; gap: 32px; }
+        .hero { text-align: center; margin-bottom: 100px; animation: fadeUp 0.8s ease-out; }
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        .hero-eyebrow { font-size: 13px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 20px; }
+        .hero h1 { font-family: 'Instrument Serif', serif; font-size: clamp(42px, 7vw, 80px); font-weight: 400; line-height: 1.05; margin-bottom: 24px; background: linear-gradient(135deg, var(--text) 0%, var(--text-muted) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .hero p { font-size: 18px; color: var(--text-muted); max-width: 600px; margin: 0 auto; line-height: 1.6; }
+        .stats { display: flex; justify-content: center; gap: 60px; margin-bottom: 100px; animation: fadeUp 0.8s ease-out 0.15s both; }
+        .stat { text-align: center; }
+        .stat-number { font-family: 'Instrument Serif', serif; font-size: 48px; font-weight: 400; line-height: 1; margin-bottom: 6px; }
+        .stat-number.aws { color: var(--accent-aws); }
+        .stat-number.azure { color: var(--accent-azure); }
+        .stat-number.gcp { color: var(--accent-gcp); }
+        .stat-number.total { background: linear-gradient(135deg, var(--accent-aws), var(--accent-azure), var(--accent-gcp)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .stat-label { font-size: 13px; color: var(--text-muted); font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; }
+        .filters { display: flex; justify-content: center; gap: 10px; margin-bottom: 60px; flex-wrap: wrap; animation: fadeUp 0.8s ease-out 0.25s both; }
+        .filter-btn { font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 0.02em; padding: 10px 22px; border-radius: 30px; border: 1px solid var(--border); background: transparent; color: var(--text-muted); cursor: pointer; transition: all 0.3s; }
+        .filter-btn:hover { border-color: #3a3a4a; color: var(--text); }
+        .filter-btn.active { background: var(--text); color: var(--bg); border-color: var(--text); }
+        .section { margin-bottom: 80px; }
+        .section-header { display: flex; align-items: center; gap: 16px; margin-bottom: 32px; padding-bottom: 16px; border-bottom: 1px solid var(--border); }
+        .section-icon { width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 700; padding: 6px; }
+        .section-icon img, .section-icon svg { width: 100%; height: 100%; object-fit: contain; }
+        .section-icon.aws { background: var(--accent-aws-glow); color: var(--accent-aws); }
+        .section-icon.azure { background: var(--accent-azure-glow); color: var(--accent-azure); }
+        .section-icon.gcp { background: var(--accent-gcp-glow); color: var(--accent-gcp); }
+        .section-title { font-family: 'Instrument Serif', serif; font-size: 28px; font-weight: 400; }
+        .section-count { margin-left: auto; font-size: 13px; color: var(--text-muted); font-weight: 500; background: var(--surface); padding: 6px 14px; border-radius: 20px; border: 1px solid var(--border); }
+        .cert-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 16px; }
+        .cert-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1); cursor: default; position: relative; overflow: hidden; text-decoration: none; color: inherit; display: flex; gap: 18px; align-items: flex-start; animation: fadeUp 0.5s ease-out both; }
+        .cert-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; opacity: 0; transition: opacity 0.35s; }
+        .cert-card.aws::before { background: linear-gradient(90deg, var(--accent-aws), transparent); }
+        .cert-card.azure::before { background: linear-gradient(90deg, var(--accent-azure), transparent); }
+        .cert-card.gcp::before { background: linear-gradient(90deg, var(--accent-gcp), transparent); }
+        .cert-card:hover { border-color: #2a2a3a; background: var(--surface-hover); transform: translateY(-2px); }
+        .cert-card:hover::before { opacity: 1; }
+        .cert-badge { width: 72px; height: 72px; min-width: 72px; border-radius: 10px; object-fit: contain; background: rgba(255,255,255,0.03); padding: 4px; }
+        .cert-badge.ms-badge { background: rgba(0, 120, 212, 0.08); padding: 8px; }
+        .cert-badge.gcp-badge { background: rgba(66, 133, 244, 0.08); padding: 6px; }
+        .cert-content { flex: 1; min-width: 0; }
+        .cert-level { display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 4px 10px; border-radius: 6px; margin-bottom: 10px; }
+        .cert-level.professional { background: rgba(255, 183, 77, 0.12); color: #ffb74d; }
+        .cert-level.specialty { background: rgba(206, 147, 216, 0.12); color: #ce93d8; }
+        .cert-level.associate { background: rgba(129, 199, 132, 0.12); color: #81c784; }
+        .cert-level.expert { background: rgba(100, 181, 246, 0.12); color: #64b5f6; }
+        .cert-level.foundational { background: rgba(144, 164, 174, 0.12); color: #90a4ae; }
+        .cert-level.early-adopter { background: rgba(255, 138, 101, 0.12); color: #ff8a65; }
+        .cert-name { font-size: 15px; font-weight: 600; line-height: 1.35; margin-bottom: 10px; }
+        .cert-meta { display: flex; justify-content: space-between; align-items: center; }
+        .cert-date { font-size: 13px; color: var(--text-muted); }
+        .cert-verify { font-size: 12px; font-weight: 600; letter-spacing: 0.04em; padding: 5px 12px; border-radius: 6px; border: 1px solid var(--border); color: var(--text-muted); transition: all 0.3s; text-decoration: none; }
+        .cert-card:hover .cert-verify { border-color: #3a3a4a; color: var(--text); }
+        .cert-card.aws:hover .cert-verify { border-color: var(--accent-aws); color: var(--accent-aws); }
+        .cert-card.azure:hover .cert-verify { border-color: var(--accent-azure); color: var(--accent-azure); }
+        .cert-card.gcp:hover .cert-verify { border-color: var(--accent-gcp); color: var(--accent-gcp); }
+        footer { text-align: center; padding: 60px 0 40px; border-top: 1px solid var(--border); margin-top: 40px; }
+        footer p { font-size: 13px; color: var(--text-muted); }
+        footer a { color: var(--text); text-decoration: none; transition: opacity 0.3s; }
+        footer a:hover { opacity: 0.7; }
+        @media (max-width: 768px) { nav { margin-bottom: 50px; } .hero { margin-bottom: 60px; } .stats { gap: 30px; flex-wrap: wrap; margin-bottom: 60px; } .stat-number { font-size: 36px; } .cert-grid { grid-template-columns: 1fr; } .nav-links { gap: 20px; } .section { margin-bottom: 50px; } }
+        @media (max-width: 480px) { .nav-links { display: none; } .hero h1 { font-size: 36px; } .cert-badge { width: 56px; height: 56px; min-width: 56px; } }
+    </style>
 </head>
 <body>
-  <header>
-    <h1>Malek Bachir Professional Certifications</h1>
-  </header>
-  <main class="certifications">
-    <div class="cert">
-<a href="https://www.credly.com/badges/6b5e6ed3-cd4a-45fb-b8cc-fec5835eb079/public_url" target="_blank">
-      <img src="AWS SAP.png" alt="AWS Cloud Architect Badge">
-      <p>AWS Certified Solutions Architect Professional</p>
-</a>
+    <div class="ambient"></div>
+    <div class="grain"></div>
+    <div class="container">
+        <nav>
+            <a href="https://malekbachir.com" class="nav-name">Malek Bachir</a>
+            <div class="nav-links">
+                <a href="https://www.linkedin.com/in/malek-bachir-43b0779a/" target="_blank">LinkedIn</a>
+            </div>
+        </nav>
+        <div class="hero">
+            <div class="hero-eyebrow">Cloud Expertise · Verified</div>
+            <h1>Professional Certifications</h1>
+            <p>26 industry certifications across AWS, Microsoft Azure, and Google Cloud — including all 14 AWS certifications and the AWS Golden Jacket distinction.</p>
+        </div>
+        <div class="stats">
+            <div class="stat"><div class="stat-number total">26</div><div class="stat-label">Total Certs</div></div>
+            <div class="stat"><div class="stat-number aws">14</div><div class="stat-label">AWS</div></div>
+            <div class="stat"><div class="stat-number azure">10</div><div class="stat-label">Azure</div></div>
+            <div class="stat"><div class="stat-number gcp">2</div><div class="stat-label">Google Cloud</div></div>
+        </div>
+        <div class="filters">
+            <button class="filter-btn active" onclick="filterCerts('all')">All (26)</button>
+            <button class="filter-btn" onclick="filterCerts('aws')">AWS (14)</button>
+            <button class="filter-btn" onclick="filterCerts('azure')">Microsoft (10)</button>
+            <button class="filter-btn" onclick="filterCerts('gcp')">Google Cloud (2)</button>
+        </div>
+
+        <!-- AWS -->
+        <div class="section" data-provider="aws">
+            <div class="section-header">
+                <div class="section-icon aws"><svg viewBox="0 0 304 182" xmlns="http://www.w3.org/2000/svg"><path fill="#FF9900" d="M86.4 66.4c0 3.7.4 6.7 1.1 8.9.8 2.2 1.8 4.6 3.2 7.2.5.8.7 1.6.7 2.3 0 1-.6 2-1.9 3L83.2 92c-.9.6-1.8.9-2.6.9-1 0-2-.5-3-1.4-1.4-1.5-2.6-3.1-3.6-4.7-1-1.7-2-3.6-3.1-5.9-7.8 9.2-17.6 13.8-29.4 13.8-8.4 0-15.1-2.4-20-7.2-4.9-4.8-7.4-11.2-7.4-19.2 0-8.5 3-15.4 9.1-20.6s14.2-7.8 24.5-7.8c3.4 0 6.9.3 10.6.8s7.5 1.3 11.5 2.2v-7.3c0-7.6-1.6-12.9-4.7-16-3.2-3.1-8.6-4.6-16.3-4.6-3.5 0-7.1.4-10.8 1.3s-7.3 2-10.8 3.4c-1.6.7-2.8 1.1-3.5 1.3-.7.2-1.2.3-1.6.3-1.4 0-2.1-1-2.1-3.1v-4.9c0-1.6.2-2.8.7-3.5s1.4-1.4 2.8-2.1c3.5-1.8 7.7-3.3 12.6-4.5C41 1.9 46.2 1.3 51.7 1.3c12.2 0 21.1 2.8 26.8 8.3 5.6 5.6 8.4 14 8.4 25.4v33.4h-.5zM54.3 80.2c3.3 0 6.7-.6 10.3-1.8 3.6-1.2 6.8-3.4 9.5-6.4 1.6-1.9 2.8-4 3.4-6.4.6-2.4 1-5.3 1-8.7v-4.2c-2.8-.7-5.8-1.3-8.9-1.7s-6.1-.6-9.1-.6c-6.7 0-11.6 1.3-14.9 4-3.3 2.7-4.9 6.5-4.9 11.5 0 4.7 1.2 8.2 3.7 10.6 2.4 2.5 5.9 3.7 9.9 3.7zm80.7 10.8c-1.8 0-3-.3-3.8-1-.8-.6-1.5-2-2.1-3.9L107.8 9.5c-.6-2-.9-3.3-.9-4 0-1.6.8-2.5 2.4-2.5h9.8c1.9 0 3.2.3 3.9 1 .8.6 1.4 2 2 3.9l16.8 66.2 15.6-66.2c.5-2 1.1-3.3 1.9-3.9.8-.6 2.2-1 4-1h8c1.9 0 3.2.3 4 1 .8.6 1.5 2 1.9 3.9l15.8 67 17.3-67c.6-2 1.3-3.3 2-3.9.8-.6 2.1-1 3.9-1h9.3c1.6 0 2.5.8 2.5 2.5 0 .5-.1 1-.2 1.6-.1.6-.3 1.4-.7 2.5l-22.3 76.7c-.6 2-1.3 3.3-2.1 3.9-.8.6-2.1 1-3.8 1h-8.6c-1.9 0-3.2-.3-4-1-.8-.7-1.5-2-1.9-4L156 23l-15.4 64.4c-.5 2-1.1 3.3-1.9 4-.8.7-2.2 1-4 1h-8.6l.9.6zM278 94.3c-5.2 0-10.4-.6-15.4-1.8-5-1.2-8.9-2.5-11.5-4-1.6-.9-2.7-1.9-3.1-2.8-.4-.9-.6-1.9-.6-2.8v-5.1c0-2.1.8-3.1 2.3-3.1.6 0 1.2.1 1.8.3.6.2 1.5.6 2.5 1 3.4 1.5 7.1 2.7 11 3.5 4 .8 7.9 1.2 11.9 1.2 6.3 0 11.2-1.1 14.6-3.3 3.4-2.2 5.2-5.4 5.2-9.5 0-2.8-.9-5.1-2.7-7-1.8-1.9-5.2-3.6-10.1-5.2L271 52c-7.2-2.3-12.5-5.7-15.8-10.2-3.3-4.4-5-9.3-5-14.5 0-4.2.9-7.9 2.7-11.1 1.8-3.2 4.2-6 7.2-8.2 3-2.3 6.4-4 10.4-5.2 4-1.2 8.2-1.7 12.6-1.7 2.2 0 4.5.1 6.7.4 2.3.3 4.4.7 6.5 1.1 2 .5 3.9 1 5.7 1.6 1.8.6 3.2 1.2 4.2 1.8 1.4.8 2.4 1.6 3 2.5.6.8.9 1.9.9 3.3v4.7c0 2.1-.8 3.2-2.3 3.2-.8 0-2.1-.4-3.8-1.2-5.7-2.6-12.1-3.9-19.2-3.9-5.7 0-10.2.9-13.3 2.8-3.1 1.9-4.7 4.8-4.7 8.9 0 2.8 1 5.2 3 7.1 2 1.9 5.7 3.8 11 5.5l12.6 4c7.1 2.3 12.2 5.5 15.3 9.6 3.1 4.1 4.6 8.8 4.6 14 0 4.3-.9 8.2-2.6 11.6-1.8 3.4-4.2 6.4-7.3 8.8-3.1 2.5-6.8 4.3-11.1 5.6-4.5 1.4-9.2 2.1-14.3 2.1z"/><path fill="#FF9900" d="M273.5 143.7c-32.9 24.3-80.7 37.2-121.8 37.2-57.6 0-109.5-21.3-148.7-56.7-3.1-2.8-.3-6.6 3.4-4.4 42.4 24.6 94.7 39.5 148.8 39.5 36.5 0 76.6-7.6 113.5-23.2 5.5-2.5 10.2 3.6 4.8 7.6z"/><path fill="#FF9900" d="M287.2 128.1c-4.2-5.4-27.8-2.6-38.5-1.3-3.2.4-3.7-2.4-.8-4.5 18.8-13.2 49.7-9.4 53.3-5 3.6 4.5-1 35.4-18.6 50.2-2.7 2.3-5.3 1.1-4.1-1.9 4-9.9 12.9-32.2 8.7-37.5z"/></svg></div>
+                <div class="section-title">Amazon Web Services</div>
+                <div class="section-count">14 certifications</div>
+            </div>
+            <div class="cert-grid">
+                <a class="cert-card aws" href="https://www.credly.com/badges/6b5e6ed3-cd4a-45fb-b8cc-fec5835eb079/public_url" target="_blank">
+                    <img class="cert-badge" src="https://images.credly.com/size/340x340/images/2d84e428-9078-49b6-a804-13c15383d0de/image.png" alt="Badge" loading="lazy">
+                    <div class="cert-content"><div class="cert-level professional">Professional</div><div class="cert-name">AWS Certified Solutions Architect – Professional</div><div class="cert-meta"><span class="cert-date">Nov 2024</span><span class="cert-verify">Verify →</span></div></div>
+                </a>
+                <a class="cert-card aws" href="https://www.credly.com/badges/d5b92743-193f-410b-a7a5-2f5766cc63b3/public_url" target="_blank">
+                    <img class="cert-badge" src="https://images.credly.com/size/340x340/images/bd31ef42-d460-493e-8503-39592aaf0458/image.png" alt="Badge" loading="lazy">
+                    <div class="cert-content"><div class="cert-level professional">Professional</div><div class="cert-name">AWS Certified DevOps Engineer – Professional</div><div class="cert-meta"><span class="cert-date">Mar 2025</span><span class="cert-verify">Verify →</span></div></div>
+                </a>
+                <div class="cert-card aws">
+                    <img class="cert-badge" src="https://images.credly.com/size/340x340/images/4d4693bb-530e-4bca-9327-de07f3aa2348/image.png" alt="Badge" loading="lazy">
+                    <div class="cert-content"><div class="cert-level professional">Professional</div><div class="cert-name">AWS Certified Generative AI Developer – Professional</div><div class="cert-meta"><span class="cert-date">Jan 2026</span><span class="cert-verify">Credential ✓</span></div></div>
+                </div>
+                <a class="cert-card aws" href="https://www.credly.com/badges/d93d91b6-1da5-467e-af4e-48e95e897f3d/public_url" target="_blank">
+                    <img class="cert-badge" src="https://images.credly.com/size/340x340/images/4d08274f-64c1-495e-986b-3143f51b1371/image.png" alt="Badge" loading="lazy">
+                    <div class="cert-content"><div class="cert-level specialty">Specialty</div><div class="cert-name">AWS Certified Advanced Networking – Specialty</div><div class="cert-meta"><span class="cert-date">Mar 2025</span><span class="cert-verify">Verify →</span></div></div>
+                </a>
+                <a class="cert-card aws" href="https://www.credly.com/badges/f2b7b61e-c4c0-431f-ac3c-f70303c388c8/public_url" target="_blank">
+                    <img class="cert-badge" src="https://images.credly.com/size/340x340/images/53acdae5-d69f-4dda-b650-d02ed7a50dd7/image.png" alt="Badge" loading="lazy">
+                    <div class="cert-content"><div class="cert-level specialty">Specialty</div><div class="cert-name">AWS Certified Security – Specialty</div><div class="cert-meta"><span class="cert-date">Jan 2025</span><span class="cert-verify">Verify →</span></div></div>
+                </a>
+                <div class="cert-card aws">
+                    <img class="cert-badge" src="https://images.credly.com/size/340x340/images/778bde6c-ad1c-4312-ac33-2fa40d50a147/image.png" alt="Badge" loading="lazy">
+                    <div class="cert-content"><div class="cert-level specialty">Specialty</div><div class="cert-name">AWS Certified Machine Learning – Specialty</div><div class="cert-meta"><span class="cert-date">May 2025</span><span class="cert-verify">Credential ✓</span></div></div>
+                </div>
+                <div class="cert-card aws">
+                    <img class="cert-badge" src="https://images.credly.com/size/340x340/images/0e284c3f-5164-4b21-8660-0d84737941bc/image.png" alt="Badge" loading="lazy">
+                    <div class="cert-content"><div class="cert-level associate">Associate</div><div class="cert-name">AWS Certified Solutions Architect – Associate</div><div class="cert-meta"><span class="cert-date">Jul 2025</span><span class="cert-verify">Credential ✓</span></div></div>
+                </div>
+                <div class="cert-card aws">
+                    <img class="cert-badge" src="https://images.credly.com/size/340x340/images/b9feab85-1a43-4f6c-99a5-631b88d5461b/image.png" alt="Badge" loading="lazy">
+                    <div class="cert-content"><div class="cert-level associate">Associate</div><div class="cert-name">AWS Certified Developer – Associate</div><div class="cert-meta"><span class="cert-date">Jun 2025</span><span class="cert-verify">Credential ✓</span></div></div>
+                </div>
+                <div class="cert-card aws">
+                    <img class="cert-badge" src="https://images.credly.com/size/340x340/images/f0d3fbb9-bfa7-4017-9989-7bde8eaf42b1/image.png" alt="Badge" loading="lazy">
+                    <div class="cert-content"><div class="cert-level associate">Associate</div><div class="cert-name">AWS Certified SysOps Administrator – Associate</div><div class="cert-meta"><span class="cert-date">Jun 2025</span><span class="cert-verify">Credential ✓</span></div></div>
+                </div>
+                <div class="cert-card aws">
+                    <img class="cert-badge" src="https://images.credly.com/size/340x340/images/e5c85d7f-4e50-431e-b5af-fa9d9b0596e7/image.png" alt="Badge" loading="lazy">
+                    <div class="cert-content"><div class="cert-level associate">Associate</div><div class="cert-name">AWS Certified Data Engineer – Associate</div><div class="cert-meta"><span class="cert-date">May 2025</span><span class="cert-verify">Credential ✓</span></div></div>
+                </div>
+                <div class="cert-card aws">
+                    <img class="cert-badge" src="https://images.credly.com/size/340x340/images/1a634b4e-3d6b-4a74-b118-c0dcb429e8d2/image.png" alt="Badge" loading="lazy">
+                    <div class="cert-content"><div class="cert-level associate">Associate</div><div class="cert-name">AWS Certified Machine Learning Engineer – Associate</div><div class="cert-meta"><span class="cert-date">Jun 2025</span><span class="cert-verify">Credential ✓</span></div></div>
+                </div>
+                <div class="cert-card aws">
+                    <img class="cert-badge" src="https://images.credly.com/size/340x340/images/00634f82-b07f-4bbd-a6bb-53de397fc3a6/image.png" alt="Badge" loading="lazy">
+                    <div class="cert-content"><div class="cert-level foundational">Foundational</div><div class="cert-name">AWS Certified Cloud Practitioner</div><div class="cert-meta"><span class="cert-date">Jul 2025</span><span class="cert-verify">Credential ✓</span></div></div>
+                </div>
+                <a class="cert-card aws" href="https://www.credly.com/badges/bf6ee7bc-f69b-4b7a-a6ee-03e0c166a3e1/public_url" target="_blank">
+                    <img class="cert-badge" src="https://images.credly.com/size/340x340/images/4d4693bb-530e-4bca-9327-de07f3aa2348/image.png" alt="Badge" loading="lazy">
+                    <div class="cert-content"><div class="cert-level early-adopter">Early Adopter</div><div class="cert-name">AWS Certified AI Practitioner – Early Adopter</div><div class="cert-meta"><span class="cert-date">Dec 2024</span><span class="cert-verify">Verify →</span></div></div>
+                </a>
+                <div class="cert-card aws">
+                    <img class="cert-badge" src="https://images.credly.com/size/340x340/images/4d4693bb-530e-4bca-9327-de07f3aa2348/image.png" alt="Badge" loading="lazy">
+                    <div class="cert-content"><div class="cert-level early-adopter">Early Adopter</div><div class="cert-name">AWS Certified Generative AI Developer – Professional Early Adopter</div><div class="cert-meta"><span class="cert-date">Jan 2026</span><span class="cert-verify">Credential ✓</span></div></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Microsoft -->
+        <div class="section" data-provider="azure">
+            <div class="section-header">
+                <div class="section-icon azure"><svg viewBox="0 0 23 23" xmlns="http://www.w3.org/2000/svg"><rect x="1" y="1" width="10" height="10" fill="#f25022"/><rect x="12" y="1" width="10" height="10" fill="#7fba00"/><rect x="1" y="12" width="10" height="10" fill="#00a4ef"/><rect x="12" y="12" width="10" height="10" fill="#ffb900"/></svg></div>
+                <div class="section-title">Microsoft Azure & 365</div>
+                <div class="section-count">10 certifications</div>
+            </div>
+            <div class="cert-grid">
+                <a class="cert-card azure" href="https://learn.microsoft.com/api/credentials/share/en-us/malekbachir-5608/EC3F3CBFACF633A6?sharingId=B805070C3413F405" target="_blank">
+                    <img class="cert-badge ms-badge" src="https://learn.microsoft.com/en-us/media/learn/certification/badges/microsoft-certified-expert-badge.svg" alt="Expert Badge" loading="lazy">
+                    <div class="cert-content"><div class="cert-level expert">Expert</div><div class="cert-name">Microsoft Certified: Azure Solutions Architect Expert</div><div class="cert-meta"><span class="cert-date">Dec 2024</span><span class="cert-verify">Verify →</span></div></div>
+                </a>
+                <a class="cert-card azure" href="https://learn.microsoft.com/api/credentials/share/en-us/malekbachir-5608/2BAC708B32A6DB40?sharingId=B805070C3413F405" target="_blank">
+                    <img class="cert-badge ms-badge" src="https://learn.microsoft.com/en-us/media/learn/certification/badges/microsoft-certified-expert-badge.svg" alt="Expert Badge" loading="lazy">
+                    <div class="cert-content"><div class="cert-level expert">Expert</div><div class="cert-name">Microsoft Certified: DevOps Engineer Expert</div><div class="cert-meta"><span class="cert-date">Dec 2024</span><span class="cert-verify">Verify →</span></div></div>
+                </a>
+                <a class="cert-card azure" href="https://learn.microsoft.com/api/credentials/share/en-us/malekbachir-5608/15ADE27135054669?sharingId=B805070C3413F405" target="_blank">
+                    <img class="cert-badge ms-badge" src="https://learn.microsoft.com/en-us/media/learn/certification/badges/microsoft-certified-expert-badge.svg" alt="Expert Badge" loading="lazy">
+                    <div class="cert-content"><div class="cert-level expert">Expert</div><div class="cert-name">Microsoft Certified: Cybersecurity Architect Expert</div><div class="cert-meta"><span class="cert-date">Feb 2025</span><span class="cert-verify">Verify →</span></div></div>
+                </a>
+                <a class="cert-card azure" href="https://learn.microsoft.com/api/credentials/share/en-us/malekbachir-5608/5C2FC54AD8EB548D?sharingId=B805070C3413F405" target="_blank">
+                    <img class="cert-badge ms-badge" src="https://learn.microsoft.com/en-us/media/learn/certification/badges/microsoft-certified-expert-badge.svg" alt="Expert Badge" loading="lazy">
+                    <div class="cert-content"><div class="cert-level expert">Expert</div><div class="cert-name">Microsoft 365 Certified: Administrator Expert</div><div class="cert-meta"><span class="cert-date">Feb 2025</span><span class="cert-verify">Verify →</span></div></div>
+                </a>
+                <a class="cert-card azure" href="https://learn.microsoft.com/api/credentials/share/en-us/malekbachir-5608/11A705719C1A7CB8?sharingId=B805070C3413F405" target="_blank">
+                    <img class="cert-badge ms-badge" src="https://learn.microsoft.com/en-us/media/learn/certification/badges/microsoft-certified-associate-badge.svg" alt="Associate Badge" loading="lazy">
+                    <div class="cert-content"><div class="cert-level associate">Associate</div><div class="cert-name">Microsoft Certified: Azure AI Engineer Associate</div><div class="cert-meta"><span class="cert-date">Dec 2024</span><span class="cert-verify">Verify →</span></div></div>
+                </a>
+                <a class="cert-card azure" href="https://learn.microsoft.com/api/credentials/share/en-us/malekbachir-5608/B10229C628AE1CEE?sharingId=B805070C3413F405" target="_blank">
+                    <img class="cert-badge ms-badge" src="https://learn.microsoft.com/en-us/media/learn/certification/badges/microsoft-certified-associate-badge.svg" alt="Associate Badge" loading="lazy">
+                    <div class="cert-content"><div class="cert-level associate">Associate</div><div class="cert-name">Microsoft Certified: Azure Administrator Associate</div><div class="cert-meta"><span class="cert-date">Dec 2024</span><span class="cert-verify">Verify →</span></div></div>
+                </a>
+                <a class="cert-card azure" href="https://learn.microsoft.com/api/credentials/share/en-us/malekbachir-5608/7F18A53DB6E92F69?sharingId=B805070C3413F405" target="_blank">
+                    <img class="cert-badge ms-badge" src="https://learn.microsoft.com/en-us/media/learn/certification/badges/microsoft-certified-associate-badge.svg" alt="Associate Badge" loading="lazy">
+                    <div class="cert-content"><div class="cert-level associate">Associate</div><div class="cert-name">Microsoft Certified: Azure Developer Associate</div><div class="cert-meta"><span class="cert-date">Feb 2025</span><span class="cert-verify">Verify →</span></div></div>
+                </a>
+                <a class="cert-card azure" href="https://learn.microsoft.com/api/credentials/share/en-us/malekbachir-5608/2C43371EE4EB0D86?sharingId=B805070C3413F405" target="_blank">
+                    <img class="cert-badge ms-badge" src="https://learn.microsoft.com/en-us/media/learn/certification/badges/microsoft-certified-associate-badge.svg" alt="Associate Badge" loading="lazy">
+                    <div class="cert-content"><div class="cert-level associate">Associate</div><div class="cert-name">Microsoft Certified: Identity and Access Administrator Associate</div><div class="cert-meta"><span class="cert-date">Feb 2025</span><span class="cert-verify">Verify →</span></div></div>
+                </a>
+                <a class="cert-card azure" href="https://learn.microsoft.com/api/credentials/share/en-us/malekbachir-5608/736D444BD7A94E74?sharingId=B805070C3413F405" target="_blank">
+                    <img class="cert-badge ms-badge" src="https://learn.microsoft.com/en-us/media/learn/certification/badges/microsoft-certified-associate-badge.svg" alt="Associate Badge" loading="lazy">
+                    <div class="cert-content"><div class="cert-level associate">Associate</div><div class="cert-name">Microsoft Certified: Security Operations Analyst Associate</div><div class="cert-meta"><span class="cert-date">Apr 2025</span><span class="cert-verify">Verify →</span></div></div>
+                </a>
+                <a class="cert-card azure" href="https://learn.microsoft.com/api/credentials/share/en-us/malekbachir-5608/3722CA637CFCCD8B?sharingId=B805070C3413F405" target="_blank">
+                    <img class="cert-badge ms-badge" src="https://learn.microsoft.com/en-us/media/learn/certification/badges/microsoft-certified-associate-badge.svg" alt="Associate Badge" loading="lazy">
+                    <div class="cert-content"><div class="cert-level associate">Associate</div><div class="cert-name">Microsoft Certified: Azure Security Engineer Associate</div><div class="cert-meta"><span class="cert-date">Apr 2025</span><span class="cert-verify">Verify →</span></div></div>
+                </a>
+            </div>
+        </div>
+
+        <!-- Google Cloud -->
+        <div class="section" data-provider="gcp">
+            <div class="section-header">
+                <div class="section-icon gcp"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12.19 2.38a9.344 9.344 0 0 0-9.234 6.893c.053-.02-.055.013 0 0-3.875 2.551-3.922 8.11-.247 10.941l.006-.007-.007.003a6.542 6.542 0 0 0 3.624 1.098h.978l-.002-.004H18.04a6.044 6.044 0 0 0 4.078-1.556c2.822-2.636 2.505-7.088-.704-9.293l-.091.063.091-.063a9.35 9.35 0 0 0-9.225-8.075zM12.19 4.73a6.974 6.974 0 0 1 6.916 5.897l.156.867.803.334a4.191 4.191 0 0 1-.106 7.801l-.2.07H7.316a4.193 4.193 0 0 1-3.327-1.667 4.193 4.193 0 0 1 .59-5.707l.637-.557-.166-.812A6.973 6.973 0 0 1 12.19 4.73z" fill="#4285F4"/></svg></div>
+                <div class="section-title">Google Cloud</div>
+                <div class="section-count">2 certifications</div>
+            </div>
+            <div class="cert-grid">
+                <a class="cert-card gcp" href="https://www.credly.com/badges/ce7b6ecd-233c-439b-b2ef-8a73eeda5b4c/public_url" target="_blank">
+                    <img class="cert-badge gcp-badge" src="https://images.credly.com/size/340x340/images/71c579e0-51fd-4247-b493-d2fa8167157a/image.png" alt="GCP Architect Badge" loading="lazy">
+                    <div class="cert-content"><div class="cert-level professional">Professional</div><div class="cert-name">Google Cloud Certified: Professional Cloud Architect</div><div class="cert-meta"><span class="cert-date">Feb 2025</span><span class="cert-verify">Verify →</span></div></div>
+                </a>
+                <a class="cert-card gcp" href="https://www.credly.com/badges/6cf22030-af2d-410c-a270-56ca8e9356a6/public_url" target="_blank">
+                    <img class="cert-badge gcp-badge" src="https://images.credly.com/size/340x340/images/2a0b01fd-ef7b-4b82-b4d3-395df951f389/blob" alt="GWS Admin Badge" loading="lazy">
+                    <div class="cert-content"><div class="cert-level associate">Associate</div><div class="cert-name">Google Workspace Administrator – Associate</div><div class="cert-meta"><span class="cert-date">Feb 2025</span><span class="cert-verify">Verify →</span></div></div>
+                </a>
+            </div>
+        </div>
+
+        <footer>
+            <p>© 2026 <a href="https://malekbachir.com">Malek Bachir</a> · Director of Operations at <a href="https://kloudr.com" target="_blank">kloudr</a> · AWS Certified Golden Jacket</p>
+        </footer>
     </div>
-    <div class="cert">
-<a href="https://www.credly.com/badges/d5b92743-193f-410b-a7a5-2f5766cc63b3/public_url" target="_blank">
-      <img src="AWS DevopS Pro.png" alt="AWS DevOps Badge">
-      <p>AWS Certified DevOps Engineer Professional</p>
-</a>
-    </div>
-    <div class="cert">
-<a href="https://www.credly.com/badges/d93d91b6-1da5-467e-af4e-48e95e897f3d/public_url" target="_blank">
-      <img src="AWS Networking Spec.png" alt="AWS Network Specialty Badge">
-      <p>AWS Certified Advanced Networking - Specialty</p>
-</a>
-    </div>
-    <div class="cert">
-<a href="https://www.credly.com/badges/f2b7b61e-c4c0-431f-ac3c-f70303c388c8/public_url" target="_blank">
-      <img src="AWS Sec Spe.png" alt="AWS Security Specialty Badge">
-      <p>AWS Certified Security - Specialty</p>
-</a>
-    </div>
-    <div class="cert">
-<a href="https://www.credly.com/badges/bf6ee7bc-f69b-4b7a-a6ee-03e0c166a3e1/public_url" target="_blank">
-      <img src="AI.png" alt="AWS AI Badge">
-      <p>AWS Certified AI Practitioner Early Adopter</p>
-</a>
-    </div>
-    <div class="cert">
-<a href="https://learn.microsoft.com/api/credentials/share/en-us/malekbachir-5608/EC3F3CBFACF633A6?sharingId=B805070C3413F405" target="_blank">
-      <img src="azure-ASAE.png" alt="Azure Architect Badge">
-      <p>Microsoft Certified Azure Solution Architect Expert</p>
-</a>
-    </div>
-    <div class="cert">
-<a href="https://learn.microsoft.com/api/credentials/share/en-us/malekbachir-5608/2BAC708B32A6DB40?sharingId=B805070C3413F405" target="_blank">
-      <img src="azure-devops.png" alt="Azure DevOps Badge">
-      <p>Microsoft Certified DevOps Engineer Expert</p>
-</a>
-    </div>
-    <div class="cert">
-<a href="https://learn.microsoft.com/api/credentials/share/en-us/malekbachir-5608/15ADE27135054669?sharingId=B805070C3413F405" target="_blank">
-      <img src="Azure-Cyber.png" alt="Azure Cyber Badge">
-      <p>Microsoft Certified Cybersecurity Architect Expert</p>
-</a>
-    </div>
-    <div class="cert">
-<a href="https://learn.microsoft.com/api/credentials/share/en-us/malekbachir-5608/7F18A53DB6E92F69?sharingId=B805070C3413F405" target="_blank">
-      <img src="Azure-Dev.png" alt="Azure Dev Badge">
-      <p>Microsoft Certified Azure Developer Associate</p>
-</a>
-    </div>
-    <div class="cert">
-<a href="https://learn.microsoft.com/api/credentials/share/en-us/malekbachir-5608/5C2FC54AD8EB548D?sharingId=B805070C3413F405" target="_blank">
-      <img src="azure-m365.png" alt="Microsoft 365 Badge">
-      <p>Microsoft 365 Certified Administrator Expert</p>
-</a>
-    </div>
-    <div class="cert">
-    <a href="https://learn.microsoft.com/api/credentials/share/en-us/malekbachir-5608/11A705719C1A7CB8?sharingId=B805070C3413F405" target="_blank">
-      <img src="azure-ai.png" alt="Azure AI Badge">
-      <p>Microsoft Certified Azure AI Engineer Associate</p>
-    </a>
-    </div>
-    <div class="cert">
-<a href="https://learn.microsoft.com/api/credentials/share/en-us/malekbachir-5608/B10229C628AE1CEE?sharingId=B805070C3413F405" target="_blank">
-      <img src="azure-admin.png" alt="Azure Admin Badge">
-      <p>Microsoft Certified Azure Administrator Associate</p>
-</a>
-    </div>
-    <div class="cert">
-<a href="https://learn.microsoft.com/api/credentials/share/en-us/malekbachir-5608/2C43371EE4EB0D86?sharingId=B805070C3413F405" target="_blank">
-      <img src="Azure-IAM.png" alt="Azure IAM Badge">
-      <p>Microsoft Certified Identity and Access Administrator Associate</p>
-</a>
-    </div>
-    <div class="cert">
-<a href="https://learn.microsoft.com/api/credentials/share/en-us/malekbachir-5608/736D444BD7A94E74?sharingId=B805070C3413F405" target="_blank">
-      <img src="azure-Ops.png" alt="Azure Ops Badge">
-      <p>Microsoft Certified Security Operations Analyst Associate</p>
-</a>
-    </div>
-    <div class="cert">
-<a href="https://learn.microsoft.com/api/credentials/share/en-us/malekbachir-5608/3722CA637CFCCD8B?sharingId=B805070C3413F405" target="_blank">
-      <img src="azure-sec.png" alt="Azure Sec Badge">
-      <p>Microsoft Certified Security Engineer Associate</p>
-</a>
-    </div>
-    <div class="cert">
-<a href="https://www.credly.com/badges/ce7b6ecd-233c-439b-b2ef-8a73eeda5b4c/public_url" target="_blank">
-      <img src="CloudArchitectPro.png" alt="GCP Architect Badge">
-      <p>Google Cloud Architect Certified Professional</p>
-</a>
-    </div>
-    <div class="cert">
-<a href="https://www.credly.com/badges/6cf22030-af2d-410c-a270-56ca8e9356a6/public_url" target="_blank">
-      <img src="GWS-admin.png" alt="GWS Admin Badge">
-      <p>Google Workspace Administrator Associate</p>
-</a>
-    </div>
-  </main>
+    <script>
+        function filterCerts(provider) {
+            const sections = document.querySelectorAll('.section');
+            const buttons = document.querySelectorAll('.filter-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            sections.forEach(section => {
+                if (provider === 'all' || section.dataset.provider === provider) {
+                    section.style.display = 'block';
+                    section.style.animation = 'fadeUp 0.4s ease-out';
+                } else { section.style.display = 'none'; }
+            });
+        }
+    </script>
 </body>
 </html>
